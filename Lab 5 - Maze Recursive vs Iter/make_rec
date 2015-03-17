@@ -1,0 +1,13 @@
+all: findcheese_rec
+
+findcheese_rec: maze.o createMaze.o findcheese_rec.o
+	gcc maze.o createMaze.o findcheese_rec.o -o findcheese_rec
+
+maze.o: maze.c
+	gcc -g -c maze.c
+
+createMaze.o: createMaze.c
+	gcc -g -c createMaze.c
+
+findcheese_rec.o: findcheese_rec.c
+	gcc -g -c findcheese_rec.c

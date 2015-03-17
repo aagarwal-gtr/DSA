@@ -1,0 +1,27 @@
+
+
+typedef struct
+{
+  int x;
+  int y;
+
+}coords;
+
+
+
+typedef struct
+{
+  coords b[100];
+  int top;
+
+}stack;
+
+
+void initialise(stack *a);
+void push(stack *a,int x,int y);
+void pop(stack *a);
+int isempty(stack a);
+void display(stack a);
+
+
+

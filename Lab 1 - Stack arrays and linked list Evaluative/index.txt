@@ -1,0 +1,6 @@
+car.c and carusinglinkedlist.c by illad
+
+main.c by me
+incompatible types when assigning to type 'struct car *[50] from type struct car *
+
+others already on machine

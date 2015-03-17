@@ -1,0 +1,1 @@
+linked list insert, reverse in same, structure but insert sorted not working

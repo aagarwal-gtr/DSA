@@ -1,0 +1,10 @@
+all: insert
+
+insert: driver.o insert.o
+	gcc -pg driver.o insert.o -o insert
+
+driver.o: driver.c
+	gcc -pg -c driver.c
+
+insert.o: insert.c
+	gcc -pg -c insert.c

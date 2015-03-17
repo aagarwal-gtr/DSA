@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "stack.h"
+
+void initialise(stack *a)
+{
+  (*a).top=-1;
+
+
+}
+
+
+
+void push(stack *a,int x,int y)
+{
+  if ((*a).top>=99)
+    return;
+  (*a).top++;
+  (*a).b[(*a).top].x=x;
+  (*a).b[(*a).top].y=y;
+
+
+
+}
+
+
+
+void pop(stack *a)
+{
+
+   if ((*a).top==-1)
+      return;
+   (*a).top--;
+
+
+
+
+
+}
+
+int isempty(stack a)
+{
+  if(a.top==-1)
+    return 1;
+  return 0;
+
+}
+
+
+void display(stack a)
+{int i;
+  for (i=0;i<=a.top;i++)
+  {
+    printf("%d %d \n",a.b[i].x,a.b[i].y);
+
+   }
+
+}
+
+/*
+
+int main()
+{
+  stack a;
+  initialise(&a);
+  push(&a,1,2);
+  push(&a,2,3);
+  push(&a,5,6);
+  display(a);
+  pop (&a);
+
+  display(a);
+  pop (&a);
+  pop (&a);
+  pop (&a);
+
+  display(a);
+  printf("%d",isempty(a));
+return 0;
+}*/
+

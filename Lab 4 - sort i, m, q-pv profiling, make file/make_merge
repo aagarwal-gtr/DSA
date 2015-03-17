@@ -1,0 +1,10 @@
+all: merge
+
+merge: driver.o merge.o
+	gcc -pg driver.o merge.o -o merge
+
+driver.o: driver.c
+	gcc -pg -c driver.c
+
+merge.o: merge.c
+	gcc -pg -c merge.c
