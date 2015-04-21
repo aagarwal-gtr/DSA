@@ -7,25 +7,38 @@
 int graph[MAX][MAX] = {0};
 int visited[MAX] = {0};
 
-int n = 0;
-int count = 0;
-
-void DFS(int vertex)
+void DFS(int vertex, int n)
 {
-	visited[vertex] = count;
+	visited[vertex]++;
 	printf("%d ", vertex);
-	int i, j;	
+	int j;	
 	for(j=1; j<=n; j++) {
-		if(graph[vertex][j]==1 && visited[j]==0)
-			DFS(j);
+		if(graph[vertex][j] && !visited[j])
+			DFS(j, n);
+	}
+}
+
+void printmat(int n)
+{
+	int i, j;
+	printf("   ");
+	for(i=1; i<=n; i++)
+		printf("%2d ", i);
+	printf("\n");
+	for(i=1; i<=n; i++) {
+		printf("%2d ", i);
+		for(j=1; j<=n; j++)
+			printf("%2d ", graph[i][j]);
+		printf("\n");
 	}
 }
 
 int main()
 {
 	FILE *fp;
-	fp = fopen("testing.txt", "r");
-	int i, m, p, q;
+	//fp = fopen("test.txt", "r");
+	fp = fopen("inputGraph.txt", "r");
+	int i, m, n, p, q, count = 0;
 	fscanf(fp, "%d", &n);
 	fscanf(fp, "%d", &m);	
 	for(i=0; i<m; i++) {
@@ -35,10 +48,13 @@ int main()
 	}
 	fclose(fp);
 
+	printf("The matrix follows:\n"); printmat(n);
+	printf("Connected components:\n");
+	
 	for(i=1; i<=n; i++) {
-		if(visited[i]==0) {
+		if(!visited[i]) {
 			count++;	
-			DFS(i);
+			DFS(i, n);
 			printf("\n");
 		}
 	}
