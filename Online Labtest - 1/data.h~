@@ -1,0 +1,19 @@
+#ifndef _DATA_H
+#define _DATA_H
+typedef int ** PointList;
+
+struct _hData {
+    int longi, idx;
+    struct hData * next;
+};
+
+typedef struct _hData hData;
+typedef struct _hData ** LongitudeHash;
+
+// functions:
+extern int * partitionInto4(PointList plist, int psize);
+extern void findMid(PointList plist, int p, int q, int mid, int col);
+extern void populateHash(LongitudeHash H, PointList plist, int start, int end);
+extern void printVicinity(LongitudeHash H,PointList plist, int longi, int lati, int sealvl);
+
+#endif
